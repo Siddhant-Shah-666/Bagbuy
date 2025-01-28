@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
 // mongoose.connect("mpngodb:/127.0.0.1:27017/bagbuy");
 
-const userSchema =mongoose.Schema({
-    fullname : String,
-    email : String,
-    contact : Number,
-    password : String,
-    cart: {
-        type: Array,
-        default :[]
+const adminSchema =mongoose.Schema({
+    fullname : {
+        type:String,
+        minLenght:3,
+        trim: true
     },
-    orders : {
+    email : String,
+    password : String,
+    products : {
         type: Array,
         default :[]
     },
     pictures :String,
+    gstin: String
 
 })
 
-module.exports  = mongoose.model("user",userSchema);
+module.exports  = mongoose.model("admin",adminSchema);
