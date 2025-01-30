@@ -10,7 +10,11 @@ const config = require("config");
 
 // mongoose.connect("mongodb://127.0.0.1:27017/bagbuy")
 mongoose
-.connect(`${config.get("MONGODB_URI")}/bagbuy`)
+.connect(`${config.get("MONGODB_URI")}/bagbuy`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  },)
 .then(function(){
     dbgr("db connected");
     
