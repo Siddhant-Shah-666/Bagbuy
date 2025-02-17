@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 // mongoose.connect("mpngodb:/127.0.0.1:27017/bagbuy");
 
 const productSchema =mongoose.Schema({
-    productname : String,
-    pictures :String,
+    name : String,
+    image :Buffer,
     price : Number,
     discount: {
         type: Number,

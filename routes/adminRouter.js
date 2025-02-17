@@ -5,10 +5,6 @@ const adminModel = require("../models/adminmodel");
 
 // console.log(process.env.NODE_ENV);
 
-router.get("/",(req,res)=>{
-    res.send("hello");
-});
-
 
 //this route will only work in development phase (process.env.NODE_ENV == development)
 if(process.env.NODE_ENV ==="development"){
@@ -32,6 +28,12 @@ if(process.env.NODE_ENV ==="development"){
         res.send(createdAdmin)
     })
 }
+
+
+router.get("/admin",(req,res)=>{
+   let success= req.flash("success");
+    res.render("createproducts",{success});
+});
 
 
 module.exports = router;

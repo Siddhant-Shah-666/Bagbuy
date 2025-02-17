@@ -10,16 +10,13 @@ const config = require("config");
 
 // mongoose.connect("mongodb://127.0.0.1:27017/bagbuy")
 mongoose
-.connect(`${config.get("MONGODB_URI")}/bagbuy`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  },)
+.connect(`${config.get("MONGODB_URI")}/bagbuy`)
 .then(function(){
+    console.log("running");
     dbgr("db connected");
-    
-}).catch(function(err){
-     dbgr(err);
-    
+    console.log("running"); // Add this line to ensure "running" is printed
+})
+.catch(function(err){
+    dbgr(err);
 })
 module.exports =mongoose.connection;
